@@ -1,0 +1,31 @@
+{
+  "name": "plus-lazy",
+  "version": "0.0.1",
+  "description": "PlusLazy is a lazy loading of files at the component level",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "index.ts"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexsanqp/plus-lazy.git"
+  },
+  "keywords": [
+    "lazyload",
+    "lazy load file",
+    "lazy load module",
+    "async",
+    "angular"
+  ],
+  "author": "Alexandr Krykhtenko <alexsanqp@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexsanqp/plus-lazy/issues"
+  },
+  "homepage": "https://github.com/alexsanqp/plus-lazy#readme",
+  "peerDependencies": {
+    "@angular/core": ">=6.0.0",
+    "rxjs": ">=6.0.0"
+  }
+}
