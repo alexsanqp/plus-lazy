@@ -3,10 +3,11 @@ import { PlusLazyService } from '../services/plus-lazy.service';
 import { PlusLazyType } from '../types/plus-lazy.type';
 import { PlusLazyFile } from '../interfaces/plus-lazy-file.interface';
 import { PlusOptions } from '../interfaces/plus-options.interface';
+import { ExecutePosition } from '../enums/execute-position.enum';
 
 const defaults: PlusOptions = {
   onInit: true,
-  position: 'after',
+  position: ExecutePosition.After,
 };
 
 export const PlusLazyLoad: Function = (
@@ -23,7 +24,7 @@ export const PlusLazyLoad: Function = (
         const originOnInit: Function = self.ngOnInit;
 
         self.ngOnInit = function (...args: any[]): void {
-          if (option.position === 'before') {
+          if (option.position === ExecutePosition.Before) {
             requestFiles.apply(this, [list]);
           }
 
@@ -31,7 +32,7 @@ export const PlusLazyLoad: Function = (
             originOnInit.apply(this, args);
           }
 
-          if (option.position === 'after') {
+          if (option.position === ExecutePosition.After) {
             requestFiles.apply(this, [list]);
           }
         };
@@ -50,7 +51,7 @@ function requestFiles(plusList: PlusLazyType): void {
       .load(plusList)
       .then((data: PlusLazyFile | PlusLazyFile[]) => {
         if (typeof this.onPlusLazyLoaded === 'function') {
-          setTimeout(() => this.onPlusLazyLoaded(data));
+          this.onPlusLazyLoaded(data);
         }
       })
       .catch((error: Error) => {

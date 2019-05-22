@@ -15,5 +15,6 @@ export * from './lib/core/interfaces/on-plus-lazy-load-error-listener.interface'
 
 export * from './lib/core/enums/plus-file-poition.enum';
 export * from './lib/core/enums/plus-file-type.enum';
+export * from './lib/core/enums/execute-position.enum';
 
 export * from './lib/core/types/plus-lazy.type';
